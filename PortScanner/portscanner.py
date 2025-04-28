@@ -7,6 +7,6 @@ port=int(input('Enter the Port to be scanned: '))
 try:
     sock=socket.socket()
     sock.connect((ipaddress, port))
-    print('Port '+str(port)+' is Open')
+    print('Port '+str(port)+' is Open, Congratulations!')
 except:
-    print('Port '+str(port)+' is Closed')
+    print('Port '+str(port)+' is Closed. Better luck next time.')
