@@ -19,9 +19,16 @@ def scan_port(ipaddress,port):
         sock=socket.socket()
         sock.settimeout(0.5)
         sock.connect((ipaddress, port))
-        print('Port '+str(port)+' is Open')
+        try:
+         banner=get_banner(sock)
+         print('Port '+str(port)+' is Open. Service running: '+str(banner))
+        except:
+            print('Port ' + str(port) + ' is Open.')
     except:
-        pass
+        print('No Open Ports found.')
+
+def get_banner(s):
+    return s.recv(1024)
 
 targets = input('Enter the Target/s IP (split different targets using ,): ')
 a = int(input('Enter the starting port of the range: '))
