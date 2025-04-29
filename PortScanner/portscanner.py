@@ -21,7 +21,7 @@ def scan_port(ipaddress,port):
         sock.connect((ipaddress, port))
         try:
          banner=get_banner(sock)
-         print('Port '+str(port)+' is Open. Service running: '+str(banner))
+         print('Port '+str(port)+' is Open. Service running: '+str(banner.decode().strip('\n')))
         except:
             print('Port ' + str(port) + ' is Open.')
     except:
