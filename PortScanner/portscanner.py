@@ -23,16 +23,16 @@ def scan_port(ipaddress,port):
          banner=get_banner(sock)
          print('Port '+str(port)+' is Open. Service running: '+str(banner.decode().strip('\n')))
         except:
-            print('Port ' + str(port) + ' is Open.')
+            print('Port ' + str(port) + ' is Open. No Services detected.')
     except:
-        print('No Open Ports found.')
+        pass
 
 def get_banner(s):
     return s.recv(1024)
 
 targets = input('Enter the Target/s IP (split different targets using ,): ')
 a = int(input('Enter the starting port of the range: '))
-b = int(input('Enter the sending port of the range: '))
+b = int(input('Enter the ending port of the range: '))
 
 if ',' in targets:
     for ip_add in targets.split(','):
